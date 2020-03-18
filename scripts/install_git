@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e
+
+BASE=$(pwd)
+
+GIT_NAME='Oleg Gushul'
+GIT_EMAIL='gushul.o@gmail.com'
+
+brew install git || brew upgrade git
+
+ln -sf $BASE/gitignore ~/.gitignore
+ln -sf $BASE/gitconfig ~/.gitconfig
+
+cat << EOF > ~/.gitconfig.user
+[user]
+  name = $GIT_NAME
+  email = $GIT_EMAIL
+[includeIf "gitdir:~/Projects/"]
+  path = ~/Projects/.gitconfig
+EOF

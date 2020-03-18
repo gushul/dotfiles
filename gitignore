@@ -1,0 +1,7 @@
+*.tmp
+tags
+.DS_Store
+.env
+.envrc
+.tool-versions
+.nvimrc

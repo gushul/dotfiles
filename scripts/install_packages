@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -e
+
+function install_or_update {
+  local pkg=$1
+  brew install $pkg || brew upgrade $pkg
+}
+packeges=(rg python3 fzf the_silver_searcher htop httpie ncdu bat fd tldr)
+# install_or_update "rg"
+# install_or_update "python3"
+# install_or_update "fzf"
+# install_or_update "the_silver_searcher"
+
+
+for t in ${packeges[@]}; do
+  install_or_update $t
+done
