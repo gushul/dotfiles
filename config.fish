@@ -13,6 +13,7 @@ alias evrc "vi ~/.config/nvim/init.vim"
 alias elc  "vi -p ~/.config.fish.local ~/.tmux.conf.local && lfc && ltc"
 
 ## Git
+alias g     "git"
 #	alias ga     "git a -p"
 #	alias gco    "git co"
 #	alias gs     "git s"
@@ -90,12 +91,14 @@ mkdir -p $GOBIN
 # Remove greeting
 set fish_greeting
 
-# Configure direnv
-eval (direnv hook fish)
+# NOT USED
+# Configure direnv 
+# eval (direnv hook fish)
 
+# NOT USED
 # Setup asdf
-set -gx DIRENV_LOG_FORMAT ""
-source ~/.asdf/asdf.fish
+#set -gx DIRENV_LOG_FORMAT ""
+#source ~/.asdf/asdf.fish
 
 # Setup base16 colorscheme (shell, fzf)
 set BASE16_DIR ~/.config/base16
