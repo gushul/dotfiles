@@ -16,9 +16,16 @@ Plug 'scrooloose/nerdcommenter'
 
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'morhetz/gruvbox'
-
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
+" Frontend and JS 
+
+" Color schemes
+Plug 'cocopon/iceberg.vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'robertmeta/nofrils'
+
+" Remove
+Plug 'morhetz/gruvbox'
 
 " Initialize plugin system
 call plug#end()
@@ -91,7 +98,12 @@ set shiftwidth=2
 " always uses spaces instead of tab characters
 set expandtab
 
-colorscheme gruvbox
+" Color Scheme
+set guifont=Droid\ Sans\ Mono\ 12
+let g:seoul256_background = 236
+colo seoul256
+colo iceberg
+colo nofrils-dark
 
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
