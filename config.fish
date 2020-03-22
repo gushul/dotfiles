@@ -111,3 +111,7 @@ end
 
 # Local settings
 source ~/.config.fish.local
+
+# golang
+export GIT_TERMINAL_PROMPT=1
+rvm default
