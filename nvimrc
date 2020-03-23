@@ -11,9 +11,12 @@
 
   let mapleader = "\<Space>"
 
-  set nocompatible
+  setglobal nocompatible
+  setglobal pastetoggle=<F2>
+
   set shell=/bin/bash
-  set exrc
+  " NOT secure
+  " set exrc
   set secure
   set modelines=1
 
@@ -37,8 +40,6 @@
 
   set autowriteall
   set nofoldenable
-
-  set colorcolumn=100
 
   " # Increase maximum amount of memory (in Kbyte) to use for pattern matching.
   set maxmempattern=20000
@@ -190,8 +191,6 @@
     let NERDTreeShowHidden=1
     let g:NERDTreeWinSize=40
 
-    nnoremap <Leader>e :NERDTreeFind<CR>
-    nnoremap <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
     nmap <C-m> :NERDTreeFind<CR>
     nmap <silent> <leader><leader> :NERDTreeToggle<CR>
   " }}}
