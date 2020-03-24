@@ -115,22 +115,24 @@
   Plug 'junegunn/vim-easy-align'
   Plug 'DataWraith/auto_mkdir'
   Plug 'easymotion/vim-easymotion'
-  Plug 'tpope/vim-fugitive'
-  Plug 'junegunn/fzf'
+  Plug 'tpope/vim-fugitive' " git plugin
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'kana/vim-textobj-user'
   Plug 'kana/vim-textobj-line'
   Plug 'janko-m/vim-test'
   Plug 'dag/vim-fish'
   Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-  Plug 'SirVer/ultisnips'
+
+  Plug 'SirVer/ultisnips' " For sneepets need to remove and replace with coc
+
   Plug 'junegunn/goyo.vim'
   Plug 'w0rp/ale'
   Plug 'VincentCordobes/vim-translate'
   Plug 'tpope/vim-endwise'
   Plug 'junegunn/vim-slash'
   Plug 'junegunn/vim-after-object'
-  Plug 'junegunn/vim-journal'
+  Plug 'junegunn/vim-journal' " markdown
   Plug 'tpope/vim-surround'
   Plug 'depuracao/vim-rdoc'
   " Color schemes
@@ -279,21 +281,24 @@
   " }}}
 
   " fzf {{{
-    let $FZF_DEFAULT_OPTS =
-      \ system('cat $FZF_DEFAULT_OPTS_FILE') . ' --reverse'
-      " \ system('cat ~/.config/base16/fzf_default_opts') . ' --reverse'
+  "
+  "
+  " TODO need understand
+    " let $FZF_DEFAULT_OPTS =
+    "   \ system('cat $FZF_DEFAULT_OPTS_FILE') . ' --reverse'
+    "   " \ system('cat ~/.config/base16/fzf_default_opts') . ' --reverse'
 
-    " To use ripgrep instead of ag:
-    command! -bang -nargs=* F
-      \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-      \   <bang>0 ? fzf#vim#with_preview('up:60%')
-      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-      \   <bang>0)
+    " " To use ripgrep instead of ag:
+    " command! -bang -nargs=* F
+    "   \ call fzf#vim#grep(
+    "   \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+    "   \   <bang>0 ? fzf#vim#with_preview('up:60%')
+    "   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+    "   \   <bang>0)
 
-    " Likewise, Files command with preview window
-    command! -bang -nargs=? -complete=dir Files
-      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+    " " Likewise, Files command with preview window
+    " command! -bang -nargs=? -complete=dir Files
+    "   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
     nnoremap <leader>w "zyiw:exe "F ".@z.""<CR>
     nnoremap <leader>f :Files<CR>
