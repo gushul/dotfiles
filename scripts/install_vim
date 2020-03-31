@@ -16,6 +16,15 @@ if [ ! -d ~/.config/nvim/snips ]; then
   ln -sf $BASE/vim-snippets ~/.config/nvim/snips
 fi
 
+if [ ! -d ~/.config/nvim/coc-settings.json ]; then
+  ln -sf $BASE/files/coc-settings.json ~/.config/nvim/coc-settings.json
+fi
+
+
+if [ ! -d ~/.config/nvim/vimrc-coc-settings ]; then
+  ln -sf $BASE/files/vimrc-coc-settings ~/.config/nvim/vimrc-coc-settings
+fi
+
 # About vim-plug: https://github.com/junegunn/vim-plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
