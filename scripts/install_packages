@@ -9,7 +9,7 @@ function install_or_update {
 packeges=(rg python3 fzf the_silver_searcher htop httpie ncdu bat
           fd tldr go kubernetes-cli hyperkit kubernetes-helm skaffold
           docker slack autoconf automake gdbm gmp libksba libtool
-          libyaml openssl pkg-config readline)
+          libyaml openssl pkg-config readline meld)
 
 for t in ${packeges[@]}; do
   install_or_update $t

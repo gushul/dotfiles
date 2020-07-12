@@ -19,11 +19,11 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'liuchengxu/vista.vim'
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 Plug 'mhinz/vim-startify'
 " Plug 'neomake/neomake'
 Plug 'tpope/vim-rails',  { 'for': 'ruby' }
-Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
+" Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " Plug 'lxhillwind/leader-clipboard'
@@ -44,11 +44,13 @@ Plug 'isobit/vim-caddyfile'
 " Separator text objects
 " Argument text objects
 " Tag text objects
+"
 Plug 'wellle/targets.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
 Plug 'nanotech/jellybeans.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'vim-airline/vim-airline'
@@ -64,11 +66,6 @@ Plug 'vim-erlang/vim-erlang-compiler', { 'for': 'erlang' }
 " Auto close parentheses and repeat by dot dot dot...
 Plug 'cohama/lexima.vim'
 
-Plug 'jwalton512/vim-blade', { 'for': 'php' }
-Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
-Plug 'noahfrederick/vim-composer', { 'for': 'php' }
-Plug 'noahfrederick/vim-laravel', { 'for': 'php' }
-
 Plug 'joonty/vdebug', { 'on': 'VdebugStart' }
 Plug 'rhysd/vim-clang-format', { 'for': ['c', 'cpp'] }
 " Plug 'tpope/vim-ragtag'
@@ -79,7 +76,6 @@ Plug 'rhysd/vim-clang-format', { 'for': ['c', 'cpp'] }
 
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'maxmellon/vim-jsx-pretty', { 'for': 'javascript' }
-Plug 'udalov/kotlin-vim', { 'for': 'kotlin' }
 " Plug 'moll/vim-node'
 " Plug 'mattn/emmet-vim', { 'for': 'html' }
 
@@ -113,6 +109,7 @@ Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" \ 'coc-solargraph',
 let g:coc_global_extensions = [
       \ 'coc-tabnine',
       \ 'coc-cspell-dicts',
@@ -132,7 +129,6 @@ let g:coc_global_extensions = [
       \ 'coc-python',
       \ 'coc-java',
       \ 'coc-jest',
-      \ 'coc-solargraph',
       \ 'coc-yaml',
       \ 'coc-highlight',
       \ 'coc-snippets',
@@ -158,13 +154,13 @@ if has('mouse')
   set mouse=a
 endif
 
-" if has("clipboard")
-"   set clipboard=unnamed " copy to the system clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
 
-"   if has("unnamedplus") " X11 support
-"     set clipboard+=unnamedplus
-"   endif
-" endif
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
