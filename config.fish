@@ -114,5 +114,7 @@ source ~/.config.fish.local
 
 # golang
 export GIT_TERMINAL_PROMPT=1
+
+# ruby
 rvm default
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths

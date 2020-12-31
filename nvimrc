@@ -18,7 +18,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'liuchengxu/vista.vim'
+" TODO remove
+" Plug 'liuchengxu/vista.vim'
 " Plug 'honza/vim-snippets'
 Plug 'mhinz/vim-startify'
 " Plug 'neomake/neomake'
@@ -29,14 +30,26 @@ Plug 'junegunn/fzf.vim'
 " Plug 'lxhillwind/leader-clipboard'
 Plug 'ntpeters/vim-better-whitespace'
 " Plug 'ConradIrwin/vim-bracketed-paste'
+
+" Ops group
+"
+Plug 'towolf/vim-helm'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'chr4/nginx.vim'
+
 Plug 'janko-m/vim-test'
 " Plug 'jlanzarotta/bufexplorer'
 Plug 'lepture/vim-jinja', { 'for': 'jinja' }
 " Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'tpope/vim-surround'
+  Plug 'wakatime/vim-wakatime'
 Plug 'isobit/vim-caddyfile'
+
+" Golang
+"
+Plug 'fatih/vim-go'
+Plug 'darrikonn/vim-gofmt', { 'do': ':GoUpdateBinaries' }
+
 
 " Targets.vim comes with five kinds for text objects:
 " Pair text objects
@@ -51,11 +64,11 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
-Plug 'nanotech/jellybeans.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-projectionist'
 Plug 'othree/html5.vim'
+Plug 'sebdah/vim-delve'
 Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
 Plug 'slim-template/vim-slim', { 'for': ['slim', 'slime'] }
 Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
@@ -73,6 +86,12 @@ Plug 'rhysd/vim-clang-format', { 'for': ['c', 'cpp'] }
 " Plug 'eagletmt/ghcmod-vim'
 " Plug 'eagletmt/ghcmod-vim'
 " Plug 'neovimhaskell/haskell-vim'
+"
+" Zettel
+Plug 'vimwiki/vimwiki'
+" Plugin 'junegunn/fzf' " already exists
+" Plugin 'junegunn/fzf.vim' " already exists
+Plug 'michal-h21/vim-zettel'
 
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'maxmellon/vim-jsx-pretty', { 'for': 'javascript' }
@@ -83,16 +102,18 @@ Plug 'maxmellon/vim-jsx-pretty', { 'for': 'javascript' }
 " Plug 'xolox/vim-easytags'
 " Plug 'Valloric/MatchTagAlways'
 
+" Markdown group
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
+" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
-Plug 'tpope/vim-haml', { 'for': 'haml' }
+" Plug 'tpope/vim-haml', { 'for': 'haml' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-bundler', { 'for': 'ruby' }
 " Plug 'michaeljsmith/vim-indent-object'
 
-" Clojure
+" Clojure group
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'tpope/vim-leiningen', { 'for': 'clojure' }
 Plug 'tpope/vim-classpath', { 'for': 'clojure' }
@@ -102,8 +123,17 @@ Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
 Plug 'kovisoft/slimv', { 'for': ['clojure', 'scheme', 'racket'] }
 Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
 
-" Plug 'stephpy/vim-yaml', { 'for': 'yaml' }
-" Plug 'henrik/vim-yaml-flattener'
+" Color schemes
+Plug 'cormacrelf/vim-colors-github'
+Plug 'cocopon/iceberg.vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'robertmeta/nofrils'
+Plug 'nanotech/jellybeans.vim'
+
+" Main Group
+Plug 'gorodinskiy/vim-coloresque'
+Plug 'Yggdroot/indentLine'
+
 
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
@@ -150,9 +180,7 @@ set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNO
 set completeopt=noinsert,menuone,noselect
 set complete+=kspell
 
-if has('mouse')
-  set mouse=a
-endif
+set mouse=
 
 if has("clipboard")
   set clipboard=unnamed " copy to the system clipboard
@@ -161,6 +189,21 @@ if has("clipboard")
     set clipboard+=unnamedplus
   endif
 endif
+
+
+" Settings for Vimwiki
+   let g:vimwiki_list =  [{'path':'~/Dropbox/42/MBRN/','ext':'.md', 'syntax':'markdown', 'auto_tags': 1, 'auto_toc': 1}]
+   " let g:vimwiki_list =  [{'path':'~/Dropbox/42/MBRN/','ext':'.md', 'syntax':'markdown', 'auto_tags': 1, 'auto_toc': 1}]
+
+
+" Settings for Zettel
+  let g:zettel_format = "%Y_%m_%d_%H_%M-%Title"
+
+  let g:zettel_fzf_command = "rg --column --line-number --ignore-case  --no-heading --color=always "
+  let g:zettel_options = [{"template" :  "~/Dropbox/42/MBRN/template.tpl"}]
+
+
+
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
@@ -202,7 +245,22 @@ set cmdheight=2
 set signcolumn=no
 set scrolloff=3
 
-silent! colorscheme jellybeans
+
+" Color Scheme
+set guifont=Droid\ Sans\ Mono\ 12
+" let g:seoul257_background = 236
+" colo seoul256
+" colo iceberg
+colo nofrils-dark
+" colo ddd
+
+
+" silent! colorscheme jellybeans
+"
+" colorscheme github
+" let g:airline_theme = "github"
+" set background=dark
+" " let g:github_colors_block_diffmark = 0
 
 " ================ Persistent Undo ==================
 " Keep undo history across sessions, by storing in file.
@@ -242,12 +300,40 @@ nmap <silent> <leader><leader> :NERDTreeToggle<CR>
 
 nnoremap <leader>b :Buffers<CR>
 
+" disable ex-mode
+nnoremap Q <Nop>
+
+
 """ Plugin Settings
+
+
+
+let g:indentLine_enabled = 1
+let g:indentLine_color_term = 239
+let g:indentLine_char = '¦'
 
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_toc_autofit = 1
+" let g:instant_markdown_browser = "firefox --new-window"
+"
 
-let g:vista_default_executive = 'coc'
+filetype plugin on
+"Uncomment to override defaults:
+"let g:instant_markdown_slow = 1
+let g:instant_markdown_autostart = 1
+"let g:instant_markdown_open_to_the_world = 1
+"let g:instant_markdown_allow_unsafe_content = 1
+"let g:instant_markdown_allow_external_content = 0
+"let g:instant_markdown_mathjax = 1
+let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
+let g:instant_markdown_browser = "firefox --new-window"
+let g:instant_markdown_autoscroll = 1
+"let g:instant_markdown_port = 8888
+"let g:instant_markdown_python = 1
+
+"
+" TODO Disabel and remove
+" let g:vista_default_executive = 'coc'
 
 nmap     <C-F>f <Plug>CtrlSFPrompt
 vmap     <C-F>f <Plug>CtrlSFVwordPath
@@ -388,6 +474,15 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" config Golang DELVE 
+let g:delve_backend = "native"
+let g:go_fmt_command = "goimports"
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
+ " Automatically get signature/type info for object under cursor
+let g:go_auto_type_info = 1
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
