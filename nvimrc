@@ -31,6 +31,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'ntpeters/vim-better-whitespace'
 " Plug 'ConradIrwin/vim-bracketed-paste'
 
+
+Plug 'christoomey/vim-tmux-navigator'
+
 " Ops group
 "
 Plug 'towolf/vim-helm'
@@ -41,8 +44,7 @@ Plug 'janko-m/vim-test'
 " Plug 'jlanzarotta/bufexplorer'
 Plug 'lepture/vim-jinja', { 'for': 'jinja' }
 " Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'tpope/vim-surround'
-  Plug 'wakatime/vim-wakatime'
+Plug 'wakatime/vim-wakatime'
 Plug 'isobit/vim-caddyfile'
 
 " Golang
@@ -62,13 +64,13 @@ Plug 'wellle/targets.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-unimpaired' "TODO  read
 Plug 'tpope/vim-surround'
 Plug 'dyng/ctrlsf.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-projectionist'  " TODO read
 Plug 'othree/html5.vim'
-Plug 'sebdah/vim-delve'
+Plug 'sebdah/vim-delve' " TODO read
 Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
 Plug 'slim-template/vim-slim', { 'for': ['slim', 'slime'] }
 Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
@@ -77,26 +79,18 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-erlang/vim-erlang-runtime', { 'for': 'erlang' }
 Plug 'vim-erlang/vim-erlang-compiler', { 'for': 'erlang' }
 " Auto close parentheses and repeat by dot dot dot...
-Plug 'cohama/lexima.vim'
+Plug 'cohama/lexima.vim'  " TODO  read
 
-Plug 'joonty/vdebug', { 'on': 'VdebugStart' }
+Plug 'joonty/vdebug', { 'on': 'VdebugStart' } " TODO read
 Plug 'rhysd/vim-clang-format', { 'for': ['c', 'cpp'] }
 " Plug 'tpope/vim-ragtag'
 
-" Plug 'eagletmt/ghcmod-vim'
-" Plug 'eagletmt/ghcmod-vim'
-" Plug 'neovimhaskell/haskell-vim'
-"
 " Zettel
 Plug 'vimwiki/vimwiki'
-" Plugin 'junegunn/fzf' " already exists
-" Plugin 'junegunn/fzf.vim' " already exists
 Plug 'michal-h21/vim-zettel'
 
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'maxmellon/vim-jsx-pretty', { 'for': 'javascript' }
-" Plug 'moll/vim-node'
-" Plug 'mattn/emmet-vim', { 'for': 'html' }
 
 " Plug 'xolox/vim-misc'
 " Plug 'xolox/vim-easytags'
@@ -139,8 +133,13 @@ Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" \ 'coc-solargraph',
 let g:coc_global_extensions = [
+      \ 'coc-solargraph',
+      \ 'coc-snippets',
+      \ 'coc-pairs',
+      \ 'coc-eslint',
+      \'coc-markdownlint',
+      \ 'coc-prettier',
       \ 'coc-tabnine',
       \ 'coc-cspell-dicts',
       \ 'coc-spell-checker',
@@ -161,7 +160,6 @@ let g:coc_global_extensions = [
       \ 'coc-jest',
       \ 'coc-yaml',
       \ 'coc-highlight',
-      \ 'coc-snippets',
       \ 'coc-docker',
       \ 'coc-diagnostic',
       \]
@@ -192,17 +190,15 @@ endif
 
 
 " Settings for Vimwiki
-   let g:vimwiki_list =  [{'path':'~/Dropbox/42/MBRN/','ext':'.md', 'syntax':'markdown', 'auto_tags': 1, 'auto_toc': 1}]
-   " let g:vimwiki_list =  [{'path':'~/Dropbox/42/MBRN/','ext':'.md', 'syntax':'markdown', 'auto_tags': 1, 'auto_toc': 1}]
+let g:vimwiki_list =  [{'path':'~/Dropbox/42/MBRN/','ext':'.md', 'syntax':'markdown', 'auto_tags': 1, 'auto_toc': 1}]
+" let g:vimwiki_list =  [{'path':'~/Dropbox/42/MBRN/','ext':'.md', 'syntax':'markdown', 'auto_tags': 1, 'auto_toc': 1}]
 
 
 " Settings for Zettel
-  let g:zettel_format = "%Y_%m_%d_%H_%M-%Title"
+let g:zettel_format = "%Y_%m_%d_%H_%M-%Title"
 
-  let g:zettel_fzf_command = "rg --column --line-number --ignore-case  --no-heading --color=always "
-  let g:zettel_options = [{"template" :  "~/Dropbox/42/MBRN/template.tpl"}]
-
-
+let g:zettel_fzf_command = "rg --column --line-number --ignore-case  --no-heading --color=always "
+let g:zettel_options = [{"template" :  "~/Dropbox/42/MBRN/template.tpl"}]
 
 
 " Don't redraw while executing macros (good performance config)
