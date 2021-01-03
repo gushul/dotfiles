@@ -100,7 +100,8 @@ Plug 'maxmellon/vim-jsx-pretty', { 'for': 'javascript' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
 Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
-" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'skanehira/preview-markdown.vim'
 
 " Plug 'tpope/vim-haml', { 'for': 'haml' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
@@ -191,7 +192,6 @@ endif
 
 " Settings for Vimwiki
 let g:vimwiki_list =  [{'path':'~/Dropbox/42/MBRN/','ext':'.md', 'syntax':'markdown', 'auto_tags': 1, 'auto_toc': 1}]
-" let g:vimwiki_list =  [{'path':'~/Dropbox/42/MBRN/','ext':'.md', 'syntax':'markdown', 'auto_tags': 1, 'auto_toc': 1}]
 
 
 " Settings for Zettel
@@ -201,12 +201,7 @@ let g:zettel_fzf_command = "rg --column --line-number --ignore-case  --no-headin
 let g:zettel_options = [{"template" :  "~/Dropbox/42/MBRN/template.tpl"}]
 
 
-" Don't redraw while executing macros (good performance config)
-set lazyredraw
-set ttyfast
-
 set shortmess+=c
-
 set cursorline
 set hidden
 set nofoldenable
@@ -216,47 +211,31 @@ set number
 set hlsearch
 set ignorecase
 set smartcase
-
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
 set nowritebackup
 set nowb
 set noswapfile
-
 set showcmd       " display incomplete commands
 set autowrite     " Automatically :write before running commands
-
-" Use one space, not two, after punctuation.
-" set nojoinspaces
-
-" set softtabstop=4
 set expandtab
-" set noexpandtab
 set softtabstop=2
 set shiftwidth=2
-
 set updatetime=300
 set splitbelow
 set cmdheight=2
 set signcolumn=no
 set scrolloff=3
 
-
 " Color Scheme
 set guifont=Droid\ Sans\ Mono\ 12
 " let g:seoul257_background = 236
 " colo seoul256
-" colo iceberg
-colo nofrils-dark
-" colo ddd
-
-
-" silent! colorscheme jellybeans
+" TODO write if markdon
+colo iceberg
+" TODO else
+" colo nofrils-dark
 "
-" colorscheme github
-" let g:airline_theme = "github"
-" set background=dark
-" " let g:github_colors_block_diffmark = 0
+" colo ddd
 
 " ================ Persistent Undo ==================
 " Keep undo history across sessions, by storing in file.
@@ -302,16 +281,20 @@ nnoremap Q <Nop>
 
 """ Plugin Settings
 
-
-
 let g:indentLine_enabled = 1
 let g:indentLine_color_term = 239
 let g:indentLine_char = '¦'
 
+""" Markdown
+
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_toc_autofit = 1
 " let g:instant_markdown_browser = "firefox --new-window"
+let g:preview_markdown_parser = "glow"
 "
+
+let g:vim_markdown_folding_disabled = 1
+
 
 filetype plugin on
 "Uncomment to override defaults:
@@ -328,8 +311,7 @@ let g:instant_markdown_autoscroll = 1
 "let g:instant_markdown_python = 1
 
 "
-" TODO Disabel and remove
-" let g:vista_default_executive = 'coc'
+let g:vista_default_executive = 'coc'
 
 nmap     <C-F>f <Plug>CtrlSFPrompt
 vmap     <C-F>f <Plug>CtrlSFVwordPath
@@ -341,8 +323,6 @@ nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
 let test#strategy = "neovim"
-
-let g:vim_markdown_folding_disabled = 1
 
 " format the entire file
 nnoremap ff :normal! gg=G``<CR>
@@ -421,6 +401,9 @@ vmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>a <Plug>(coc-codeaction-selected)
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 let g:coc_snippet_next = '<tab>'
 
