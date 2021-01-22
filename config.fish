@@ -81,11 +81,16 @@ set -gx LANG en_US.UTF-8
 
 set -gx fish_user_paths "/usr/local/opt/openssl/bin" $fish_user_paths
 
-set -gx GOPATH $HOME/Projects/
+set -gx GOPATH $HOME
 set -gx GOBIN $GOPATH/bin
 set -gx PATH $PATH $GOBIN ~/bin
 set -gx GOROOT /usr/local/go
 set -gx PATH $GOPATH/bin:$GOROOT/bin:$PATH
+
+# set -gx GOPATH ~/go
+# set -gx GOBIN $GOPATH/bin
+# set -gx PATH $PATH $GOBIN ~/bin
+
 
 
 mkdir -p ~/bin
