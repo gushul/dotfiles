@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-rhubarb'
 Plug 'terryma/vim-multiple-cursors'
 " TODO remove
 " Plug 'liuchengxu/vista.vim'
@@ -541,3 +542,8 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 vmap <leader>y :w! /tmp/.vim/.vbuf<CR>
 nmap <leader>y :.w! /tmp/.vim/.vbuf<CR>
 nmap <leader>p :r /tmp/.vim/.vbuf<CR>
+
+" terraform
+let g:terraform_fmt_on_save=1
+let g:terraform_fold_sections=1
+let g:terraform_align=1
