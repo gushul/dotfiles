@@ -34,7 +34,7 @@ ubuntu-prepare:
 	apt-get update
 	apt-get install -yy neovim git silversearcher-ag fd-find fzf bat htop ncdu tldr httpie exuberant-ctags terraform-ls
 
-deps: deps-gem deps-composer deps-npm deps-pip
+deps: deps-gem  deps-npm deps-pip
 
 deps-pip:
 	# pip2 install --upgrade pynvim
@@ -48,11 +48,6 @@ deps-gem:
 	gem install sorbet sorbet-runtime
 	gem install haml_lint slim_lint
 	gem install brakeman reek
-
-deps-composer:
-	composer --no-interaction global require \
-		squizlabs/php_codesniffer \
-		phpstan/phpstan
 
 deps-npm:
 	npm install -g neovim
