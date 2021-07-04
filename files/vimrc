@@ -132,12 +132,11 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'ekalinin/Dockerfile.vim'
 
 " \ 'coc-docker', https://github.com/neoclide/coc.nvim/pull/2756
-" \ 'coc-tabnine',
-" https://github.com/phpactor/coc-phpactor use when become popular
 let g:coc_global_extensions = [
       \ 'coc-cspell-dicts',
       \ 'coc-markdownlint',
       \ 'coc-prisma',
+      \ 'coc-tabnine',
       \ 'coc-spell-checker',
       \ 'coc-tsserver',
       \ 'coc-prettier',
