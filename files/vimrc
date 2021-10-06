@@ -137,6 +137,7 @@ Plug 'ekalinin/Dockerfile.vim'
 " \ 'coc-docker', https://github.com/neoclide/coc.nvim/pull/2756
 let g:coc_global_extensions = [
       \ 'coc-rls',
+      \'coc-rust-analyzer',
       \ 'coc-tabnine',
       \ 'coc-cspell-dicts',
       \ 'coc-markdownlint',
