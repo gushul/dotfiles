@@ -15,7 +15,8 @@ call plug#begin('~/.vim/plugged')
 "" MUST BE
 " Plug 'tpope/vim-sensible'
 " git support
-" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
+Plug 'zivyangll/git-blame.vim'
 Plug 'honza/vim-snippets'
 " advanced welcome screen
 Plug 'mhinz/vim-startify'
@@ -302,6 +303,9 @@ let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_toc_autofit = 1
 
 let g:slime_target = "neovim"
+
+" show git blame of current line
+nnoremap <Leader>h :<C-u>call gitblame#echo()<CR>
 
 " nmap     <C-F>f <Plug>CtrlSFPrompt
 " vmap     <C-F>f <Plug>CtrlSFVwordPath
