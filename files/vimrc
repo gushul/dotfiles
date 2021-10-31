@@ -39,6 +39,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-endwise'
 Plug 'rlue/vim-barbaric'
 "Plug 'Raimondi/delimitMate'
+"
+" Color schemes
+Plug 'cocopon/iceberg.vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'robertmeta/nofrils'
 
 "" PROBABLY USEFULL
 " multi cursor
@@ -181,7 +186,16 @@ filetype plugin on
 " Enable hotkeys for Russian layout
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
-silent! colorscheme jellybeans
+" silent! colorscheme jellybeans
+
+" Color Scheme
+set guifont=Droid\ Sans\ Mono\ 12
+" let g:seoul257_background = 236
+" colo seoul256
+" colo iceberg
+colo nofrils-dark
+" colo ddd
+
 
 " set visualbell
 " set completeopt=noinsert,menuone,noselect
