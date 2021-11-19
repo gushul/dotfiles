@@ -193,17 +193,19 @@ set guifont=Droid\ Sans\ Mono\ 12
 " let g:seoul257_background = 236
 " colo seoul256
 " colo iceberg
-colo nofrils-dark
+" colo nofrils-dark
 " colo ddd
+silent! colorscheme nofrils-dark
 
 
 " set visualbell
 " set completeopt=noinsert,menuone,noselect
 " set complete+=kspell
 
-if has('mouse')
-  set mouse=a
-endif
+
+" if has('mouse')
+"   set mouse=a
+" endif
 
 " if has("clipboard")
 "   set clipboard=unnamed " copy to the system clipboard
