@@ -40,6 +40,7 @@ Plug 'tpope/vim-endwise'
 Plug 'rlue/vim-barbaric'
 "Plug 'Raimondi/delimitMate'
 "
+Plug 'tomlion/vim-solidity'
 " Color schemes
 Plug 'cocopon/iceberg.vim'
 Plug 'junegunn/seoul256.vim'
