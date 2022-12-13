@@ -20,7 +20,7 @@ nvim-install:
 	ln -snf $(PWD)/files/vim-ftplugins ~/.config/nvim/ftplugin
 
 macos-prepare:
-	brew upgrade neovim git the_silver_searcher fzf bat htop fd ncdu tldr httpie git-delta ripgrep gnu-sed
+	brew upgrade neovim the_silver_searcher git fzf bat htop fd ncdu tldr httpie git-delta ripgrep gnu-sed
 	brew install hashicorp/tap/terraform-ls
 	brew install poetry
 	brew install --HEAD universal-ctags/universal-ctags/universal-ctags

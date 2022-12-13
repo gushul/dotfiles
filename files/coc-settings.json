@@ -17,6 +17,8 @@
     }
   },
   "coc.preferences.extensionUpdateCheck": "weekly",
+  "coc.source.coc-rls.priority": 1,
+  "coc.source.coc-tabnine.priority": 80,
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextPrefix": "# ",
   "solargraph.diagnostics": true,
