@@ -10,11 +10,19 @@
       "initializationOptions": {},
       "settings": {}
     },
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
+    },
     "dockerfile": {
       "command": "docker-langserver",
       "filetypes": ["dockerfile"],
       "args": ["--stdio"]
     }
+  },
+  "go.goplsOptions": {
+    "staticcheck": true
   },
   "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.source.coc-rls.priority": 1,
@@ -28,7 +36,7 @@
     "elixir": ["mix_credo"],
     "eelixir": ["mix_credo"]
   },
-  "cSpellExt.enableDictionaries": ["russian"],
+  "cSpellExt.enableDictionaries": ["russian", "english"],
   "cSpell.enabledLanguageIds": ["markdown", "plaintext", "yml", "php", "node", "python", "html", "css"],
   "cSpell.language": "en,ru",
   "prettier.printWidth": 120,
@@ -43,4 +51,5 @@
   "python.linting.flake8Enabled": true,
   "python.linting.banditEnabled": true,
   "python.linting.pytypeEnabled": true,
+  "snippets.ultisnips.pythonPrompt": false,
 }

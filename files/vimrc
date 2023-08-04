@@ -4,8 +4,6 @@ let mapleader = "\<Space>"
 let g:ruby_host_prog = '/Users/oleg/.gem/ruby/2.7.0/gems/neovim-0.9.0/exe/neovim-ruby-host'
 
 
-set clipboard=unnamed
-
 " auto install vim-plug and plugins
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
@@ -25,6 +23,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'zivyangll/git-blame.vim'
 Plug 'honza/vim-snippets'
 Plug 'github/copilot.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 " advanced welcome screen
 Plug 'mhinz/vim-startify'
 " Plug 'neomake/neomake'
@@ -41,6 +41,7 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-projectionist'
 Plug 'dense-analysis/ale'
+Plug 'jlcrochet/vim-crystal'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 Plug 'tpope/vim-endwise'
@@ -101,9 +102,9 @@ Plug 'lepture/vim-jinja'
 " Tag text objects
 " Plug 'othree/html5.vim'
 " Plug 'digitaltoad/vim-pug'
-" Plug 'elixir-editors/vim-elixir'
-" Plug 'vim-erlang/vim-erlang-runtime'
-" Plug 'vim-erlang/vim-erlang-compiler'
+Plug 'elixir-editors/vim-elixir'
+Plug 'vim-erlang/vim-erlang-runtime'
+Plug 'vim-erlang/vim-erlang-compiler'
 " Auto close parentheses and repeat by dot dot dot...
 Plug 'c-brenn/phoenix.vim'
 
@@ -151,10 +152,12 @@ Plug 'ekalinin/Dockerfile.vim'
 " \ 'coc-docker', https://github.com/neoclide/coc.nvim/pull/2756
 let g:coc_global_extensions = [
       \ 'coc-rls',
+      \ 'coc-go',
       \ 'coc-rust-analyzer',
       \ 'coc-tabnine',
       \ 'coc-cspell-dicts',
       \ 'coc-markdownlint',
+      \ 'coc-copilot',
       \ 'coc-prisma',
       \ 'coc-tabnine',
       \ 'coc-spell-checker',
@@ -211,9 +214,9 @@ silent! colorscheme nofrils-dark
 " set complete+=kspell
 
 
-" if has('mouse')
-"   set mouse=a
-" endif
+if has('mouse')
+   set mouse=a
+endif
 
 if has("clipboard")
   set clipboard=unnamed " copy to the system clipboard
@@ -371,3 +374,67 @@ source ~/dotfiles/files/vim-configs/nerdtree.vim
 source ~/dotfiles/files/vim-configs/coc-fzf.vim
 source ~/dotfiles/files/vim-configs/coc-plugins.vim
 source ~/dotfiles/files/vim-configs/test.vim
+
+
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+let g:go_list_type = "quickfix"
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+
+
+
+" disable all linters as that is taken care of by coc.nvim
+" let g:go_diagnostics_enabled = 0
+" let g:go_metalinter_enabled = []
+
+" don't jump to errors after metalinter is invoked
+let g:go_jump_to_error = 0
+
+" run go imports on file save
+let g:go_fmt_command = "goimports"
+
+" automatically highlight variable your cursor is on
+let g:go_auto_sameids = 0
+let g:go_doc_popup_window = 1
+
+autocmd BufEnter *.go nmap <leader>t  <Plug>(go-test)
+autocmd BufEnter *.go nmap <leader>tt <Plug>(go-test-func)
+autocmd BufEnter *.go nmap <leader>c  <Plug>(go-coverage-toggle)
+autocmd BufEnter *.go nmap <leader>i  <Plug>(go-info)
+autocmd BufEnter *.go nmap <leader>ii  <Plug>(go-implements)
+autocmd BufEnter *.go nmap <leader>ci  <Plug>(go-describe)
+autocmd BufEnter *.go nmap <leader>cc  <Plug>(go-callers)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>ae <Plug>(go-alternate-edit)
+au FileType go nmap <Leader>av <Plug>(go-alternate-vertical)
+
+au FileType go nmap <leader>mr <Plug>(go-run)
+au FileType go nmap <leader>mb <Plug>(go-build)
+au FileType go nmap <leader>mt <Plug>(go-test)
+au FileType go nmap <leader>mc <Plug>(go-coverage)
+" autocmd FileType go nmap <leader>b  <Plug>(go-build)
+" autocmd FileType go nmap <leader>r  <Plug>(go-run)
+" nmap <leader>cr <Plug>(coc-references)
+" nmap <C-a> <C-o>
+" nmap <C-d> <Plug>(coc-definition)
+" nmap <leader>r <Plug>(coc-rename)
+"
+"
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+" autocmd FileType go nmap <leader>; :<C-u>call <SID>build_go_files()<CR>
