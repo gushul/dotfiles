@@ -23,6 +23,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'zivyangll/git-blame.vim'
 Plug 'honza/vim-snippets'
 Plug 'github/copilot.vim'
+Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " advanced welcome screen
@@ -154,12 +155,10 @@ let g:coc_global_extensions = [
       \ 'coc-rls',
       \ 'coc-go',
       \ 'coc-rust-analyzer',
-      \ 'coc-tabnine',
       \ 'coc-cspell-dicts',
       \ 'coc-markdownlint',
       \ 'coc-copilot',
       \ 'coc-prisma',
-      \ 'coc-tabnine',
       \ 'coc-spell-checker',
       \ 'coc-tsserver',
       \ 'coc-prettier',
@@ -438,3 +437,6 @@ function! s:build_go_files()
 endfunction
 
 " autocmd FileType go nmap <leader>; :<C-u>call <SID>build_go_files()<CR>
+"
+let g:javascript_plugin_jsdoc = 1
+

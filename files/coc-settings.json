@@ -52,4 +52,9 @@
   "python.linting.banditEnabled": true,
   "python.linting.pytypeEnabled": true,
   "snippets.ultisnips.pythonPrompt": false,
+
+  "eslint.packageManager": "yarn",
+  "eslint.nodePath": ".yarn/sdks",
+  "workspace.workspaceFolderCheckCwd": false,
+  "tsserver.tsdk": ".yarn/sdks/typescript/lib"
 }
