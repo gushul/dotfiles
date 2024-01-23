@@ -6,12 +6,12 @@ install:
 	./install.sh
 
 nvim-configure:
-	# rm -rf nvim/plugin || exit 0
-	# rm -rf ~/.local/share/nvim || exit 0
-	# rm -rf ~/.config/nvim || exit 0
-	# mkdir -p ~/.config
+	rm -rf nvim/plugin || exit 0
+	rm -rf ~/.local/share/nvim || exit 0
+	rm -rf ~/.config/nvim || exit 0
+	mkdir -p ~/.config
 	ln -snf $(PWD)/nvim ~/.config/nvim
-	# nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+	nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 deps-install: deps-gem deps-composer deps-npm deps-pip deps-go
 

@@ -9,5 +9,6 @@ vim.o.relativenumber = false
 vim.o.spelllang = "ru_ru,en_us"
 vim.o.linebreak = true
 vim.g.autoformat = false
+vim.opt.conceallevel = 1
 
 require("lazyvim.util").get_root = vim.loop.cwd
