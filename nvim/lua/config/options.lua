@@ -10,5 +10,6 @@ vim.o.spelllang = "ru_ru,en_us"
 vim.o.linebreak = true
 vim.g.autoformat = false
 vim.opt.conceallevel = 1
+vim.opt.swapfile = false
 
 require("lazyvim.util").get_root = vim.loop.cwd
