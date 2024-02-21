@@ -13,7 +13,7 @@ nvim-configure:
 	ln -snf $(PWD)/nvim ~/.config/nvim
 	nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
-deps-install: deps-gem deps-composer deps-npm deps-pip deps-go
+deps-install:  deps-composer deps-npm deps-pip deps-go
 
 deps-pip:
 	# pip2 install --upgrade pynvim
