@@ -18,3 +18,5 @@ end)
 
 vim.keymap.set("n", "<leader>[", "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>")
 vim.keymap.set("n", "<leader>]", "<Cmd>call append(line('.'),     repeat([''], v:count1))<CR>")
+vim.keymap.set("n", "<leader>gt", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+vim.keymap.set("n", "<leader>gb", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })

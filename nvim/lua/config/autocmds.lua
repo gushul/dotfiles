@@ -12,3 +12,9 @@ vim.cmd([[
     autocmd FileType asciidoc setlocal wrap
   augroup END
 ]])
+
+vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+  pattern = { "*" },
+  command = "silent! wall",
+  nested = true,
+})

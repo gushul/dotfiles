@@ -9,6 +9,7 @@ vim.o.relativenumber = false
 vim.o.spelllang = "ru_ru,en_us"
 vim.o.linebreak = true
 vim.g.autoformat = false
+vim.opt.autowrite = false
 vim.opt.conceallevel = 1
 vim.opt.swapfile = false
 
